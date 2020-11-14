@@ -1,0 +1,60 @@
+* {font-size: 12px;}
+.sec{
+    border-top: 1px solid rgb(177, 175, 175);
+}
+.left{
+    width: 30%;
+    float: left;
+    height: 100vh;
+}
+
+.map{
+    float: right;
+    width: 70%;
+    height: 100vh;
+    border-left: 3px solid rgb(177, 175, 175);
+    background-size: 80%;
+    background-position: center;
+    background-image: url(./Map.svg);
+    background-repeat: no-repeat;
+    background-position-y: 50px;
+    overflow: hidden;
+  }
+.Seats{
+    text-align: center;
+    width: fit-content;
+}
+.imgPC{
+    height: 7vh;
+    width: 4vw;
+}
+h3{
+    color:rgb(69, 131, 212);
+}
+.Info{
+    margin-bottom: 20px;
+}
+.imgs,.map{
+    max-width: 100%;
+    max-height: 100%;
+}
+.inputBox,#slash{
+    display: inline-block;
+}
+
+label{
+    font-weight: bold;
+    margin-right: 10px;
+}
+#slash{
+    margin-left: 10px;
+}
+.date{
+    margin-left: 40px;
+}
+.date,.Loaction,.Machine,.Status{
+    margin-bottom: 15px;
+}
+input,select{
+    border-radius: 12px;
+}
