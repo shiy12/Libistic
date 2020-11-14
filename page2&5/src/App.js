@@ -12,29 +12,195 @@ import { createHashHistory } from 'history';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Table, Image,ListGroup,ListGroupItem, CardGroup,Form, FormControl, FormCheck, Row, Col, Dropdown,DropdownButton,ToggleButton,ToggleButtonGroup,ButtonGroup} from 'react-bootstrap';
+import { Button,Form, FormControl, FormCheck, Row, Col, Dropdown,DropdownButton,ToggleButton,ToggleButtonGroup,ButtonGroup} from 'react-bootstrap';
 
 import Calendar from 'react-calendar';
-
-import io from 'socket.io-client';
-const socket = io('http://localhost:3001');
-//
-// See: https://socket.io/get-started/chat
-//      https://www.npmjs.com/package/socket.io-client
-
-
 const hashHistory = createHashHistory();
+
 var storage=window.localStorage;
 
 
+class Hpage extends React.Component{
 
 
+  render(){
+    return(
+    <div style={{padding: '50px'}}>
+    <h2>Homepage</h2><br/>
+    <p>This is a dashboard for viewing and analyzing social media posts resulting from a disaster.</p>
+    <p>Click the Live Feed button to see the live feed posts of the social media posts.</p>
+    <p>Click the Analytics button to see the analytics result.</p>
+    </div> 
+    )}
+}
+
+
+class Page3 extends React.Component{
+
+  constructor(props) {
+    super(props);
+    // this.state = { images: ["images/HSL.png","images/Thode.png","images/Mills.png"],date: new Date(),}
+
+    this.state = {
+    libraries: [
+      {image: "images/Thode.png", 
+      PC:true,Group: true, Printer:true, Food:false, Quiet:false, 
+        Distance:100,
+         },
+      {image: "images/Mills.png", 
+         PC:true,Group: true, Printer:true, Food:true, Quiet:true, 
+            Distance:500,
+           },
+      {image: "images/HSL.png", 
+       PC:true,Group: false, Printer:true, Food:false, Quiet:false, 
+       Distance:800,
+        },
+
+      // {image: "images/error.png", 
+      //   Group: true, 
+      //   Distance:0,
+      //  }
+    ],
+      HasGroup:false, HasPC:false, HasPrinter: false, HasFood: false, HasQuiet:false, MaxDistance:1000}
+  }
+
+
+  onChange = date => this.setState({ date })
+
+  filterGroup(){this.setState({HasGroup:!this.state.HasGroup})}
+  filterPC(){this.setState({HasPC:!this.state.HasPC})}
+  filterPrinter(){this.setState({HasPrinter:!this.state.HasPrinter})}
+  filterFood(){this.setState({HasFood:!this.state.HasFood})}
+  filterQuiet(){this.setState({HasQuiet:!this.state.HasQuiet})}
+
+  importPreference(){
+    this.setState({HasGroup:storage["pre_group"], MaxDistance:storage["pre_distance"],HasPC:storage["pre_pc"], HasPrinter:storage["pre_printer"], HasFood:storage["pre_food"], HasQuiet:storage["pre_quiet"]});
+  }
+
+
+
+  // filterDistance(e){this.setState({HasDistance:e.target.getAttribute("value")})}
+   handleChange =(e)=> {
+     this.setState({MaxDistance:e.target.value});
+     if(this.state.MaxDistance<=100) {this.setState({libraries:[
+      {image: "images/error.png", 
+      PC:true,Group: true, Printer:true, Food:true, Quiet:true, 
+       Distance:0,
+        },
+    ]})}
+    if(this.state.MaxDistance>100) {this.setState({libraries:[
+      {image: "images/Thode.png", 
+      PC:true,Group: true, Printer:true, Food:false, Quiet:false, 
+        Distance:100,
+         },
+      {image: "images/Mills.png", 
+         PC:true,Group: true, Printer:true, Food:true, Quiet:true, 
+            Distance:500,
+           },
+      {image: "images/HSL.png", 
+       PC:true,Group: false, Printer:true, Food:false, Quiet:false, 
+       Distance:800,
+        },
+    ]})}
+  
+  
+  
+  }
+
+    render(){
+
+      var toDisplay = this.state.libraries;
+      if(this.state.HasPC)  toDisplay=  toDisplay.filter(x => x.PC == true);
+      if(this.state.HasGroup)  toDisplay=  toDisplay.filter(x => x.Group == true);
+      if(this.state.HasPrinter)  toDisplay=  toDisplay.filter(x => x.Printer == true);
+      if(this.state.HasFood)  toDisplay=  toDisplay.filter(x => x.Food == true);
+      if(this.state.HasQuiet)  toDisplay=  toDisplay.filter(x => x.Quiet == true);
+      toDisplay = toDisplay.filter(x=>x.Distance<=this.state.MaxDistance);
+
+
+      return(
+      <div style={{padding: '50px'}}>
+        <div style={{float:'left', width:'36%', borderRight: '1px solid grey', padding: '10px', margin: '10px'}}>
+        <Form>
+
+          <Form.Group as={Row} controlId="formPlaintextSeatType">
+          <Col sm="3">
+            </Col>
+          <Col sm="7">
+            <Button  variant="outline-primary" onClick={() => this.importPreference()}>Import My Preference</Button>{' '}
+            </Col>
+
+          </Form.Group>
+
+
+          <Form.Group as={Row} controlId="formPlaintextDistance">
+          <Form.Label column sm="5">
+            DISTANCE
+          </Form.Label>
+          
+          <Col sm="7">
+          
+          
+          {/* <Form.Control type="range" min={100} max={5000} defaultValue={100}  onChange={()=>this.filterDistance()} /> */}
+          <Form.Control type="range" min={0} max={1000} value={this.state.MaxDistance}  onChange={this.handleChange} />
+          <Form.Label>0m</Form.Label>
+          <Form.Label></Form.Label><Form.Label></Form.Label><Form.Label></Form.Label><Form.Label></Form.Label><Form.Label></Form.Label><Form.Label></Form.Label><Form.Label></Form.Label>500m<Form.Label></Form.Label><Form.Label></Form.Label><Form.Label></Form.Label><Form.Label></Form.Label><Form.Label></Form.Label>
+          <Form.Label>1000m</Form.Label>
+          </Col>
+        </Form.Group>
+
+        <Form.Group as={Row} controlId="formPlaintextSeatType">
+          <Form.Label column sm="5">
+            SEAT TYPE
+          </Form.Label>
+          <Col sm="7">
+
+        <ButtonGroup className="mr-2" aria-label="First group">
+          <Button active={this.state.HasPC}variant="outline-primary" size = "sm" onClick={() => this.filterPC()} style={{margin:'2px'}}>PC</Button>
+          <Button active={this.state.HasGroup} variant="outline-primary" size = "sm" onClick={() => this.filterGroup()} style={{margin:'2px'}}>Group</Button>
+          <Button active={this.state.HasPrinter}variant="outline-primary" size = "sm" onClick={() => this.filterPrinter()}style={{margin:'2px'}}>Printer</Button>
+          <Button active={this.state.HasFood}variant="outline-primary" size = "sm" onClick={() => this.filterFood()}style={{margin:'2px'}}>Food</Button>
+          <Button active={this.state.HasQuiet}variant="outline-primary" size = "sm" onClick={() => this.filterQuiet()}style={{margin:'2px'}}>Quiet</Button>
+        </ButtonGroup>
+          </Col>
+        </Form.Group>
+
+
+        <Form.Group as={Row} controlId="formPlaintextSeatType">
+          <Form.Label column sm="5">
+            SEAT TYPE
+          </Form.Label>
+          <Col sm="9"style={{margin: '30px'}}>
+          <Calendar
+          onChange={this.onChange}
+          value={this.state.date}
+        />
+          </Col>
+        </Form.Group>
+
+        </Form>
+      <span>{this.state.test1}</span>
+        </div>
+
+
+
+
+
+        <div style={{float:'left', width:'61%', height:'550px',border: '0px solid grey', padding: '10px', margin: '10px'}}>
+        { toDisplay.map( 
+            ({image,Group}) => 
+            <img width = "90%" src={image}/>
+             )}
+        </div>
+      </div> 
+      )}
+}
 
 class Page2 extends React.Component{
 
   constructor(props){
     super(props)
-    this.state={distance:0, timeslot:"Pick a time slot", pc:false, group:false, printer:false, food:false, quiet:false,school:"", address:"",type:""};
+    this.state={distance:800, timeslot:"Pick a time slot", pc:false, group:false, printer:false, food:false, quiet:false,school:"", address:"",type:""};
   }
   SetSlot1(){this.setState({timeslot:"8.00am-11.00am"})}
   SetSlot2(){this.setState({timeslot:"1.00pm-5.00pm"})}
@@ -60,15 +226,6 @@ class Page2 extends React.Component{
 
   render(){
     
-
-
-    
-    //Low
-    var FireLow = this.props.posts;
-    FireLow = FireLow.filter(x=>x.priority === "Low" && x.problem === "Fire");
-
-
-
 
 
     return(
@@ -179,44 +336,6 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-
-    // An array of social media posts messages, and we'll increment nextID
-    // to maintain a unique ID for each post in our array
-    this.state = {posts: [],nextID: 0};
-
-    // We can setup the event handlers for the messages in the constructor...
-    socket.on('connect', function(){
-
-      console.log("Connect....");
-
-      // When we receive a social media message, call setState and insert 
-      // it into the array of posts
-      socket.on('post', 
-
-        function(data) {
-
-          // Can uncomment this to see the raw data coming in...
-          // console.log("post: " + JSON.stringify(data));
-
-          // increment the next unique ID, and put post data into the list of 
-          // posts... use the '...' syntax to make this insertion easier:
-          // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax 
-          this.setState( 
-            {posts: [...this.state.posts,
-                     {name: data.name, 
-                      image: data.image, 
-                      content: data.content, 
-                      problem: data.problem,
-                      priority: data.priority,
-                      id: this.state.nextID}]
-            ,nextID: this.state.nextID + 1} );
-        }.bind(this));
-        // ^^ Like other event handlers, we bind the callback function to the 
-        // component so we can use setState        
-
-    }.bind(this));
-    // ^^ ... And same with the callback function for when a connection is made
-
   }
   
   // Output all the posts into a table
@@ -232,8 +351,8 @@ class App extends React.Component {
           </div>
           <Route exact path="/"><Redirect to="/hpage" /></Route>
           <Route path="/hpage" component={Hpage}/>
-          <Route path="/setting" render = {(props) => <Page2 {...props} posts={this.state.posts} />}/>
-          <Route path="/browse" render = {(props) => <Page3 {...props} posts={this.state.posts} />}/>
+          <Route path="/setting" render = {(props) => <Page2 {...props}  />}/>
+          <Route path="/browse" render = {(props) => <Page3 {...props}  />}/>
         
         </Router>      
       </div>
