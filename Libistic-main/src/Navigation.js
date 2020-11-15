@@ -25,6 +25,24 @@ const Styles = styled.div`
     color: rgb(69, 131, 212);;
     &:hover { color: black; }
   }
+  .item,.itemU{
+    font-size:14px;
+  }
+  a.item.nav-link{
+    font-size:14px;
+  }
+  a.itemU.dropdown-item,a.itemImg.dropdown-item{
+    display:inline;
+  }
+  a.itemImg.dropdown-item{
+    margin-left:12px;
+    padding-left:1px;
+    padding-right:1px;
+  }
+  a.itemU.dropdown-item{
+    padding-left:1px;
+    padding-right:1px;
+  }
 `;
 
 const NavigationBar = () => (
@@ -41,12 +59,12 @@ const NavigationBar = () => (
         <Nav.Item><Nav.Link href="/SupportPage" >Support</Nav.Link></Nav.Item>
 
         
-        <NavDropdown title="Test User" id="basic-nav-dropdown" menuAlign={{ lg: 'left' }}>
-            <NavDropdown.Item><img width={'50px'} height={'50px'} src={"https://avatars2.githubusercontent.com/u/32040029?s=400&v=4"}></img></NavDropdown.Item>
-            <NavDropdown.Item>betauser@test.com</NavDropdown.Item>
-            <Nav.Item><Nav.Link href="/HistoryPage" activeStyle={{fontWeight: "bold",color: "orange"}}>Booking History</Nav.Link></Nav.Item>
+        <NavDropdown title="Test User" id="basic-nav-dropdown">
+            <NavDropdown.Item className='itemImg'><img width={'10px'} height={'10px'} src={"https://avatars2.githubusercontent.com/u/32040029?s=400&v=4"}></img></NavDropdown.Item>
+            <NavDropdown.Item className='itemU'>user@test.com</NavDropdown.Item>
+            <Nav.Item className='item'><Nav.Link className='item' href="/HistoryPage">Booking History</Nav.Link></Nav.Item>
             <NavDropdown.Divider/>
-            <NavDropdown.Item>Sign Out</NavDropdown.Item>
+            <NavDropdown.Item className='item'>Sign Out</NavDropdown.Item>
         </NavDropdown>
 
       </Navbar.Collapse>
