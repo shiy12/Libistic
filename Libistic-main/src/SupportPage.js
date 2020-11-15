@@ -29,7 +29,7 @@ class SupportPage extends React.Component{
     return(
       <CardDeck> 
         <div style={{padding:'50px'}}>
-        <Card style={{ width: '60rem', textAlign:"left"}}>
+        <Card style={{ width: '50rem', textAlign:"left"}}>
           <Card.Body>
           <h2 style={{fontSize:'22px'}}>FAQ</h2><br/>
           <h4 style={{fontSize:'18px'}}>Q: How do I know I've booking successfully?</h4><br/>
@@ -42,7 +42,7 @@ class SupportPage extends React.Component{
         </Card>
         </div>
         <div style={{padding:'50px'}}>
-        <Card style={{ width: '50rem', textAlign:"left"}}>
+        <Card style={{ width: '40rem', textAlign:"left"}}>
           <Card.Body style={{margin:'20px'}}>
           <Form>
             <Row>

@@ -53,28 +53,28 @@ class SettingPage extends React.Component{
     <Form>
       <Form.Group as={Row} controlId="formPlaintextSearch">
         <Col sm="1"></Col>
-        <Form.Label column sm="2" style={{margin:'10px', fontSize:'18px'}}>
+        <Form.Label column sm="2" style={{marginTop:'20px', fontSize:'18px'}}>
           School
         </Form.Label>
-        <Col sm="6">
+        <Col sm="6" style={{marginTop:'20px', fontSize:'16px'}}>
           <Form.Control type="text" placeholder="" onChange={(event) => this.setState({school: event.target.value})} value={this.state.school} />
         </Col>
       </Form.Group>
       <Form.Group as={Row} controlId="formPlaintextAddress">
         <Col sm="1"></Col>
-        <Form.Label column sm="2" style={{margin:'10px',fontSize:'18px'}}>
+        <Form.Label column sm="2" style={{marginTop:'20px',fontSize:'18px'}}>
           Address
         </Form.Label>
-        <Col sm="6">
+        <Col sm="6" style={{marginTop:'20px',fontSize:'16px'}}>
           <Form.Control type="text" placeholder=""  onChange={(event) => this.setState({address: event.target.value})} value={this.state.address}/>
         </Col>
       </Form.Group>
       <Form.Group as={Row} controlId="formPlaintextDistance">
       <Col sm="1"></Col>
-        <Form.Label column sm="2" style={{margin:'10px', fontSize:'18px'}}>
+        <Form.Label column sm="2" style={{marginTop:'20px', fontSize:'18px'}}>
           Prefered Distance
         </Form.Label>
-        <Col sm="5">
+        <Col sm="5" style={{marginTop:'20px', fontSize:'16px'}}>
         <Form.Control type="range"min={0} max={1000} value={this.state.distance}  onChange={this.handleDistance} />
         <Form.Label style={{float:'left', padding: '0px', margin: '0px', fontSize:'16px'}}>0m</Form.Label>
       
@@ -83,10 +83,10 @@ class SettingPage extends React.Component{
       </Form.Group>
       <Form.Group as={Row} controlId="formPlaintextTimeSlots">
         <Col sm="1"></Col>
-        <Form.Label column sm="2" style={{margin:'10px', fontSize:'18px'}}>
+        <Form.Label column sm="2" style={{marginTop:'10px', fontSize:'18px'}}>
           Prefered Time Slots
         </Form.Label>
-        <Col sm="3">
+        <Col sm="3" style={{marginTop:'10px', fontSize:'16px'}}>
       <DropdownButton id="dropdown-basic-button" title={this.state.timeslot} style={{margin:'10px', fontSize:'16px'}}>
         <Dropdown.Item onClick={() => this.SetSlot1()}>8.00am-11.00am</Dropdown.Item>
         <Dropdown.Item onClick={() => this.SetSlot2()}>1.00pm-5.00pm</Dropdown.Item>
@@ -97,10 +97,10 @@ class SettingPage extends React.Component{
       <div style={{padding:'10px'}}></div>
       <Form.Group as={Row} controlId="formPlaintextSeatType">
       <Col sm="1"></Col>
-        <Form.Label column sm="2" style={{margin:'10px', fontSize:'18px'}}>
+        <Form.Label column sm="2" style={{marginTop:'20px', fontSize:'18px'}}>
           Prefered Seat Type
         </Form.Label>
-        <Col sm="6">
+        <Col sm="6" style={{marginTop:'20px', fontSize:'16px'}}>
             <ButtonGroup style={{margin:'10px', fontSize:'16px'}}>
               <Button active={this.state.pc}variant="outline-primary" size = "sm" onClick={() => this.FlipPc()} style={{margin:'2px'}}>PC</Button>
               <Button active={this.state.group} variant="outline-primary" size = "sm" onClick={() => this.FlipGroup()} style={{margin:'2px'}}>Group</Button>
@@ -114,10 +114,10 @@ class SettingPage extends React.Component{
       <Form.Group as={Row} controlId="formPlaintextSeatType">
       <Col sm="1"></Col>
       <Col sm="3">
-        <Button variant="primary" style={{margin:'10px', fontSize:'16px'}} onClick={() => this.SubmitPreferene()}>Submit</Button>{' '}
+        <Button variant="primary" style={{marginTop:'10px', fontSize:'16px'}} onClick={() => this.SubmitPreferene()}>Submit</Button>{' '}
         </Col>
         <Col sm="3">
-        <Button variant="primary" style={{margin:'10px', fontSize:'16px'}}onClick={() => this.CancelPreference()}>Cancel</Button>{' '}
+        <Button variant="primary" style={{marginTop:'10px', fontSize:'16px'}}onClick={() => this.CancelPreference()}>Cancel</Button>{' '}
         </Col>
       </Form.Group>
     </Form>

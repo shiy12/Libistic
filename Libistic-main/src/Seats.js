@@ -21,7 +21,7 @@ const Seat = [
         css: {
             position: 'absolute',
             left: '39%',
-            top: '20%'
+            top: '24%'
         }
     },
     {
@@ -34,7 +34,7 @@ const Seat = [
         css: {
             position: 'absolute',
             left: '67.5%',
-            top: '20%'
+            top: '24%'
         }
     },
 
