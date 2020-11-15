@@ -3,7 +3,6 @@ import {Button, ListGroup, Card, CardDeck} from 'react-bootstrap';
 import { Redirect } from "react-router-dom";
 import './MainPage.css'
 import MapView from './TestMap';
-import LibraryPage from './LibraryPage'
 import FreeSoloCreateOption from './AutoComplete'
 
 
@@ -38,34 +37,40 @@ class SearchBar extends Component {
     }
 
     render() {
-        if (this.state.showSearch && !this.state.showLib){
+        if (this.state.showSearch){
             return (
                 <div>
+                    <div className="SearchBar">
                     <div className="SearchComponent" >
                     <FreeSoloCreateOption />
                     <Button onClick={this.handleSubmit}>search</Button>
                     </div>
-                        <CardDeck onClick={this.clickResult}>
+                    </div>
+                    <div className="LayComp">
+                    <CardDeck onClick={this.clickResult}>
                         <SearchResult />
-                        <Card style={{ width: '75rem'}}>
-                        <MapView />
+                        <Card style={{ width: '75vw'}}>
+                            <MapView />
                         </Card>
-                        </CardDeck>
-                        {this.renderLib()}
+                    </CardDeck>
+                    </div>
+                    {this.renderLib()}
                 </div>
             );
-
-        }else if(!this.state.showSearch && !this.state.showLib){
+        }else{
             return (
                 <div>
+                    <div className="SearchBar">
                     <div className="SearchComponent" >
                     <FreeSoloCreateOption />
                     <Button onClick={this.handleSubmit}>search</Button>
                     </div>
-                    <Card style={{ width: '100rem'}}>
+                    </div>
+                <div className="LayComp">
+                    <Card style={{ width: '100vw'}}>
                         <MapView />
                     </Card>
-                    
+                </div>
                 </div>
             );
         }  
@@ -79,7 +84,7 @@ class SearchBar extends Component {
 function SearchResult() {
     return (
         <div>
-        <Card style={{ width: '25rem', textAlign:"left"}}>
+        <Card style={{ width: '25vw', textAlign:"left"}}>
             <ListGroup style={{textAlign:"left"}}>
                 <ListGroup.Item>
                     <h6>H.G. Thode Library of Science and Engineering</h6>

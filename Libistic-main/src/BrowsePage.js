@@ -2,16 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import {
   HashRouter as Router,
-  Route,
-  NavLink,
   Redirect,
 } from 'react-router-dom';
 
-import { createHashHistory } from 'history';
-
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button,Form, Row, Col, Dropdown,DropdownButton,ButtonGroup} from 'react-bootstrap';
+import { Button,Form, Row, Col, ButtonGroup, Card, CardDeck} from 'react-bootstrap';
 
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
@@ -112,17 +107,17 @@ class BrowsePage extends React.Component{
 
 
       return(
-      <div style={{padding: '50px'}}>
-        <div style={{display:'flex',float:'left', width:'35%', borderRight: '0px solid grey', padding: '10px', margin: '10px'}}>
+        <CardDeck>
+        <Card style={{ width: '30rem', textAlign:"center"}}>
+        <div className="cardImg">
         <Form>
-
+          
           <Form.Group as={Row} controlId="formPlaintextSeatType">
-          <Col sm="3">
-            </Col>
-          <Col sm="7">
+          <Col ></Col>
+          <Col >
             <Button  variant="outline-primary" onClick={() => this.importPreference()}>Import My Preference</Button>{' '}
-            </Col>
-
+          </Col>
+          <Col ></Col>
           </Form.Group>
 
 
@@ -130,14 +125,10 @@ class BrowsePage extends React.Component{
           <Form.Label column sm="3">
             DISTANCE
           </Form.Label>
-          
           <Col sm="7">
-          
-          
-          {/* <Form.Control type="range" min={100} max={5000} defaultValue={100}  onChange={()=>this.filterDistance()} /> */}
           <Form.Control type="range" min={0} max={1000} value={this.state.MaxDistance}  onChange={this.handleChange} />
           <Form.Label style={{float:'left', padding: '0px', margin: '0px'}}>0m</Form.Label>
-      <Form.Label style={{float:'left', paddingLeft: '80px', margin: '0px'}}>{this.state.MaxDistance}m</Form.Label>
+          <Form.Label style={{float:'left', paddingLeft: '80px', margin: '0px'}}>{this.state.MaxDistance}m</Form.Label>
           <Form.Label style={{float:'right', padding: '0px', margin: '0px'}}>1000m</Form.Label>
           </Col>
         </Form.Group>
@@ -147,41 +138,46 @@ class BrowsePage extends React.Component{
             SEAT TYPE
           </Form.Label>
           <Col sm="7">
-
-        <ButtonGroup className="mr-2" aria-label="First group">
-          <Button active={this.state.HasPC} variant="outline-primary" size = "sm" onClick={() => this.filterPC()} style={{margin:'2px'}}>PC</Button>
-          <Button active={this.state.HasGroup} variant="outline-primary" size = "sm" onClick={() => this.filterGroup()} style={{margin:'2px'}}>Group</Button>
-          <Button active={this.state.HasPrinter} variant="outline-primary" size = "sm" onClick={() => this.filterPrinter()}style={{margin:'2px'}}>Printer</Button>
-          <Button active={this.state.HasFood} variant="outline-primary" size = "sm" onClick={() => this.filterFood()}style={{margin:'2px'}}>Food</Button>
-          <Button active={this.state.HasQuiet} variant="outline-primary" size = "sm" onClick={() => this.filterQuiet()}style={{margin:'2px'}}>Quiet</Button>
-        </ButtonGroup>
-        
+          <ButtonGroup className="mr-2" aria-label="First group">
+            <Button active={this.state.HasPC} variant="outline-primary" size = "sm" onClick={() => this.filterPC()} style={{margin:'2px'}}>PC</Button>
+            <Button active={this.state.HasGroup} variant="outline-primary" size = "sm" onClick={() => this.filterGroup()} style={{margin:'2px'}}>Group</Button>
+            <Button active={this.state.HasPrinter} variant="outline-primary" size = "sm" onClick={() => this.filterPrinter()}style={{margin:'2px'}}>Printer</Button>
+            <Button active={this.state.HasFood} variant="outline-primary" size = "sm" onClick={() => this.filterFood()}style={{margin:'2px'}}>Food</Button>
+            <Button active={this.state.HasQuiet} variant="outline-primary" size = "sm" onClick={() => this.filterQuiet()}style={{margin:'2px'}}>Quiet</Button>
+          </ButtonGroup>
           </Col>
         </Form.Group>
 
-
-        <Form.Group as={Row} controlId="formPlaintextSeatType">
-          <Form.Label column sm="6">
-            CALENDAR  
-          </Form.Label>
-          <Col sm="9"style={{margin: '30px'}}>
+        <Form.Group controlId="formPlaintextSeatType">
+          <Form.Label> CALENDAR  </Form.Label>
+          <Row>
+            <Col></Col>
+            <Col>
           <Calendar
           onChange={this.onChange}
-          value={this.state.date}
-        />
-          </Col>
-        </Form.Group>
-        </Form>
+          value={this.state.date}/></Col>
+          <Col></Col>
+          </Row>
+          </Form.Group>
+          </Form>
+          </div>
+          </Card>
+          
 
-        </div>
-        <div style={{float:'left', width:'55%', height:'550px',borderLeft: '1px solid grey', padding: '10px', margin: '10px'}}>
-        { toDisplay.map( 
+          
+        <Card tyle={{ width: '40rem', textAlign:"center"}}>
+        <div className="cardImg">
+        <div style={{float:'left', padding: '10px', margin: '10px'}}>
+        {toDisplay.map( 
             ({image,Group}) => 
             <img width = "90%" src={image} onClick={this.clickResult}/>
              )}
         </div>
+        </div>
+        </Card>
+        
         {this.renderSeat()}
-      </div> 
+        </CardDeck> 
       )}
 }
 

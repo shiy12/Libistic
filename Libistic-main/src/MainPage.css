@@ -1,4 +1,18 @@
+.SearchBar{
+    position: fixed;
+    left: 25vw;
+}
+
 .SearchComponent{
     display: flex;
-    align-self: center;
 }
+
+.LayComp{
+    position: fixed;
+    padding: 10px;
+    top: 10vw;
+    left: 3vw;
+    right: 3vw;
+    display: flex;
+}    
+

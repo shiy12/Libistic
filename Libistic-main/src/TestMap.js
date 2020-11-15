@@ -3,13 +3,12 @@ import {
   GoogleMap,
   useLoadScript,
   Marker,
-  InfoWindow,
 } from "@react-google-maps/api";
 
 const libraries = ["places"];
 const mapContainerStyle = {
     width: "100%",
-    height: "100vh",
+    height: "80vh",
 }
 
 const options = {

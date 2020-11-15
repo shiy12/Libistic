@@ -9,7 +9,7 @@ import MapView from './TestMap';
 
 function LibraryPage(){
     return(
-        <CardDeck eventKey="#LibraryPage">
+        <CardDeck>
             <LibSpec />
             <FacilityList />
             <CardMap />
@@ -29,7 +29,10 @@ function CardMap(){
 function LibSpec(){
     return(
         <Card style={{ width: '30rem', textAlign:"left"}}>
-            <Card.Img style={{width: '400px', height: '300px'}} variant="top" src="https://facilities.mcmaster.ca/app/uploads/2018/10/20785704_1237882372982563_8816577642889440390_o.jpg" />
+            
+            <div className="cardImg">
+            <Card.Img style={{width: '100%', height: '100%'}} variant="top" src="https://facilities.mcmaster.ca/app/uploads/2018/10/20785704_1237882372982563_8816577642889440390_o.jpg" />
+            </div>
             <Card.Body>
                 <Card.Title>H.G. Thode Library of Science and Engineering</Card.Title>
                 <Card.Text>
@@ -70,7 +73,9 @@ function LibSpec(){
 function FacilityTable(){
     return(
         <div>
+        <div style={{padding:'20px'}}></div>
         <Card.Title>Overview</Card.Title>
+            <div style={{padding:'20px'}}></div>
             <ListGroup>
                 <ListGroup.Item>
                     <p>Computer</p>
@@ -82,11 +87,11 @@ function FacilityTable(){
                 </ListGroup.Item>
                 <ListGroup.Item>
                     <p>Study Room</p>
-                    <ProgressBar variant="success" now={60} label={'12/20'}/>
+                    <ProgressBar variant="danger" now={100} label={'20/20'}/>
                 </ListGroup.Item>
                 <ListGroup.Item>
                     <p>Projector</p>
-                    <ProgressBar variant="danger" now={100} label={'4/4'}/>
+                    <ProgressBar variant="success" now={50} label={'2/4'}/>
                 </ListGroup.Item>
             </ListGroup>
         </div>
@@ -123,14 +128,16 @@ class FacilityList extends Component{
     render(){
         return(
             <div>
-            <Card style={{ width: '30rem' }}>
+            <Card style={{ width: '35rem', height:'50rem', textAlign:"center"}}>
                 <FacilityTable />
-                <ListGroup horizontal={'lg'}>
-                    <ListGroup.Item>
-                        <Button block onClick={this.clickResult}>Reserve</Button>
+                <div style={{padding:'30px'}}></div>
+                <ListGroup>
+                    <ListGroup.Item variant="info" action onClick={this.clickResult}>
+                        Reserve
                     </ListGroup.Item>
-                    <ListGroup.Item>
-                        <Button block onClick={this.clickResult}>Back</Button>
+                    <div style={{padding:'10px'}}></div>
+                    <ListGroup.Item variant="success" action onClick={this.clickResult}>
+                        Back
                     </ListGroup.Item>
                 </ListGroup>
             </Card>

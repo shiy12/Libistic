@@ -3,6 +3,7 @@ import { Redirect } from 'react-router';
 import lib from './img/Thode.jpg';
 import 'react-dropdown/style.css';
 import './HistoryPage.css';
+import {Form, Row, Col, Button, Image} from 'react-bootstrap';
 
 class HistoryPage extends React.Component {
     constructor(props) {
@@ -66,32 +67,43 @@ class HistoryPage extends React.Component {
     render() {
         return (
             <div className='sec'>
-                <div id='OutterBox'>
-                <h2 id='historyTitle'>Booking History</h2>
-                <img id='lib' src={lib} alt='Thode Library' />
-                <div id='box'>
-                    <div className='subBox'>
-                        <span className='spans'>Name: </span>
-                       <div id='name'>{this.state.name},</div>
-                        <div id='email'>{this.state.email}</div> 
-                    </div>
-                    <div className='subBox'>
-                        <span className='spans'>Location: </span>
-                        <div id='loc'>{this.state.Location},</div>
-                        <div id='id'>{this.state.ID}</div>
-                    </div>
-                    <div className='subBox'>
-                        <span className='spans'>Time: </span>
-                         <div id='date'>{this.state.date},</div>
-                        <div id='time'>{this.state.start}<span> - </span>{this.state.end}</div>
-                        <button type="button" className="btn btn-primary btn-lg" id='remove' onClick={() => this.goMain()}>Delete</button>
-                    </div>
-                   
-                    
+            <h2 id='historyTitle'>Booking History</h2>
+            <Form>
+                <Row>
+                <Col sm='1'></Col>
+                <Col xs='auto'>
+                <Image style={{width: '80%', height: '80%', marginLeft:'20%'}} src={lib} id='lib' alt='Thode Library' rounded/>
+                </Col>
+                <Col sm='7' style={{marginTop:'15px'}}>
+                <div className='hbox'>
+                <div className='subBox' style={{padding:'2px'}}>
+                    <span className='spans'>Name: </span>
+                    <div id='name'>{this.state.name},</div>
+                    <div id='email'>{this.state.email}</div> 
                 </div>
+                <div className='subBox' style={{padding:'2px'}}>
+                    <span className='spans'>Location: </span>
+                    <div id='loc'>{this.state.Location},</div>
+                    <div id='id'>{this.state.ID}</div>
+                </div>
+                <div className='subBox' style={{padding:'2px'}}>
+                    <span className='spans'>Time: </span>
+                        <div id='date'>{this.state.date},</div>
+                    <div id='time'>{this.state.start}<span> - </span>{this.state.end}</div>
+                    <Button id='remove' onClick={() => this.goMain()}>Delete</Button>
+                </div>
+                </div>
+                </Col>
+                </Row>
+            </Form>
+            
                 
                 
-                </div>
+                
+                
+                
+                
+                
                 {this.renderMain()}
                 
             </div>

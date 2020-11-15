@@ -8,6 +8,7 @@ import clockIcon from './img/clock.svg';
 import libIcon from './img/LibIcon.png';
 import 'react-dropdown/style.css';
 import './Booking.css';
+import { Card, CardDeck, Form, Row, Col, Image } from 'react-bootstrap';
 
 
 class Booking extends React.Component {
@@ -74,79 +75,88 @@ class Booking extends React.Component {
     render() {
 
         return (
-            <div className='sec'>
-                <h3>Thode Library</h3>
-                <div className='left'>
-                    <div className='Info'>
-                        
-                        <img className='imgs' src={lib} alt='Thode Library img' />
-                        <img id='LibIcon' src={libIcon} alt='Avaliable Service' />
-                    </div>
+            <CardDeck>
+                <div>
+                <Card style={{ width: '35rem', textAlign:"left", height:'50rem', margin:'5px', padding:'10px'}}>
+                <Card.Title><h3>Thode Library</h3></Card.Title>
+                <div className='cardImg'>
+                <Card.Img style={{width: '95%', height: '70%', overflow:'auto', padding:'10px', margin:'5px'}} variant="top" src={lib} alt='Thode Library img' />
+                <Image style={{width: '80%', height: '20%'}} variant="top" id='LibIcon' src={libIcon} alt='Avaliable Service' />
                 </div>
-                <div className='right'>
-
-                    <div className='PC'>
-                        <img className='ic' src={imgPC} alt="PC ICON" />
-                        <div className='info'>
-                            <div>
-                                <label className = 'Blabel' htmlFor='id'>ID:</label>
-                                <span id='id'>{this.state.ID}</span>
-                            </div>
-                            <div>
-                                <label className = 'Blabel' htmlFor='location'>Location:</label>
-                                <span id='location'>{this.state.Location}</span>
-                            </div>
-                            <div>
-                                <label className = 'Blabel' htmlFor='Spec'>Specification:</label>
-                                <span id='Spec'>Win 10 with MS Office, Matlab, Photoshop</span>
-                            </div>
+                </Card>
+                </div>
+                <Card style={{ width: '60rem', textAlign:"left", height:'50rem', margin:'5px', padding:'10px'}}> 
+                <Form>
+                    <Row>
+                        <Col sm='2'></Col>
+                        <Col sm='2'>
+                        <img style={{width: '60%', height: '100%'}} className='ic' src={imgPC} alt="PC ICON" />
+                        </Col>
+                        <Col>
+                        <div>
+                            <label className = 'Blabel' htmlFor='id'>ID:</label>
+                            <span id='id'>{this.state.ID}</span>
                         </div>
-                    </div>
+                        <div>
+                            <label className = 'Blabel' htmlFor='location'>Location:</label>
+                            <span id='location'>{this.state.Location}</span>
+                        </div>
+                        <div>
+                            <label className = 'Blabel' htmlFor='Spec'>Specification:</label>
+                            <span id='Spec'>Win 10 with MS Office, Matlab, Photoshop</span>
+                        </div>
+                        </Col>
+                    </Row>
+                    <Row>
                     <div className='subSec'>
-                        <div className='data'>
-                            <div className='Subbox'>
-                                <img className='icon' src={userIcon} alt='User Icon' />
-                                <label className = 'Blabel' htmlFor='name'>Name:</label>
-                                <input type="text" id="nameBox"
-                                    onChange={this.handleChange} />
-                            </div>
-                            <div className='Subbox'>
-                                <img className='icon' src={emailIcon} alt='Emial Icon' />
-                                <label className = 'Blabel' htmlFor='email'>Email:</label>
-                                <input type="email" id="emailBox"
-                                    onChange={this.handleChange2} />
-                            </div>
+                    <div className='data'>
+                        <div className='Subbox'>
+                            <img className='icon' src={userIcon} alt='User Icon' />
+                            <label className = 'Blabel' htmlFor='name'>Name:</label>
+                            <input type="text" id="nameBox"
+                                onChange={this.handleChange} />
+                        </div>
+                        <div className='Subbox'>
+                            <img className='icon' src={emailIcon} alt='Emial Icon' />
+                            <label className = 'Blabel' htmlFor='email'>Email:</label>
+                            <input type="email" id="emailBox"
+                                onChange={this.handleChange2} />
+                        </div>
 
-                        </div>
-                        <div id='TimeDate'>
-                            <div className='Time'>
-                                <div className='inputBox'>
-                                    <img className='icon' src={clockIcon} alt='Clock Icon' />
-                                    <label className = 'Blabel' htmlFor='box1'>Time slot:</label>
-                                    <input type="time" step="60" className="box1"
-                                        value={this.state.start} disabled={true}
-                                        onChange={(ev) => { this.setState({ time: ev.target.value }) }} />
-                                </div>
-                                <div className='inputBox'>
-                                    <label htmlFor='box2' id='slash'> - </label>
-                                    <input type="time" step="60" className="box2"
-                                        value={this.state.end} disabled={true}
-                                        onChange={(ev) => { this.setState({ time: ev.target.value }) }} />
-                                </div>
-                                <input type="date" value={this.state.date} id="box3" disabled={true}></input>
-                            </div>
-                        </div>
-                        <div id='btns'>
-                            <button type="button" className="btn btn-primary btn-lg" id='back' onClick={() => this.goSeat()}>Back</button>
-                            <button type="button" className="btn btn-primary btn-lg" id='submit' onClick={() => this.goSeat2()}>Reserve Now</button>
-                        </div>
-                    
-                        
                     </div>
-                    {this.renderSeat()}
-                </div>
+                    <div id='TimeDate'>
+                        <div className='Time'>
+                            <div className='inputBox'>
+                                <img className='icon' src={clockIcon} alt='Clock Icon' />
+                                <label className = 'Blabel' htmlFor='box1'>Time slot:</label>
+                                <input type="time" step="60" className="box1"
+                                    value={this.state.start} disabled={true}
+                                    onChange={(ev) => { this.setState({ time: ev.target.value }) }} />
+                            </div>
+                            <div className='inputBox'>
+                                <label htmlFor='box2' id='slash'> - </label>
+                                <input type="time" step="60" className="box2"
+                                    value={this.state.end} disabled={true}
+                                    onChange={(ev) => { this.setState({ time: ev.target.value }) }} />
+                            </div>
+                            <input type="date" value={this.state.date} id="box3" disabled={true}></input>
+                        </div>
+                    </div>
+                    <div id='btns'>
+                        <button type="button" className="btn btn-primary btn-lg" id='back' onClick={() => this.goSeat()}>Back</button>
+                        <button type="button" className="btn btn-primary btn-lg" id='submit' onClick={() => this.goSeat2()}>Reserve Now</button>
+                    </div>
+                    </div>
+                    </Row>
+                </Form>
+
+
                 
-            </div>
+                    {this.renderSeat()}
+                    
+                </Card>
+           
+            </CardDeck>
         )
     }
 }
