@@ -21,7 +21,7 @@ const Seat = [
         css: {
             position: 'absolute',
             left: '39%',
-            top: '29%'
+            top: '20%'
         }
     },
     {
@@ -34,7 +34,7 @@ const Seat = [
         css: {
             position: 'absolute',
             left: '67.5%',
-            top: '29%'
+            top: '20%'
         }
     },
 
@@ -48,7 +48,7 @@ const Seat = [
         css: {
             position: 'absolute',
             left: '33%',
-            top: '60%'
+            top: '55%'
         }
     },
 
@@ -62,7 +62,7 @@ const Seat = [
         css: {
             position: 'absolute',
             left: '44%',
-            top: '60%'
+            top: '55%'
         }
 
     },
@@ -76,7 +76,7 @@ const Seat = [
         css: {
             position: 'absolute',
             left: '61%',
-            top: '60%'
+            top: '55%'
         }
     },
     {
@@ -89,7 +89,7 @@ const Seat = [
         css: {
             position: 'absolute',
             left: '72%',
-            top: '60%'
+            top: '55%'
         }
     },
     {
