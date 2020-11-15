@@ -90,7 +90,7 @@ class Booking extends React.Component {
                     <Row>
                         <Col sm='2'></Col>
                         <Col sm='2'>
-                        <img style={{width: '60%', height: '100%'}} className='ic' src={imgPC} alt="PC ICON" />
+                        <img style={{width: '120%', height: '100%', position:'relative',right:'50px'}} className='ic' src={imgPC} alt="PC ICON" />
                         </Col>
                         <Col>
                         <div>
