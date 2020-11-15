@@ -245,58 +245,58 @@ class Seats extends React.Component {
 
         return (
 
-            <div className='sec'>
+            <div className='sec' style={{paddingTop:'30px'}}>
                 <div className='left'>
                     <div className='Info'>
-                        <h3>Thode Library</h3>
+                        <h3 style={{margin:'10px', fontSize:'22px'}}>Thode Library</h3>
                         <img className='imgs' src={lib} alt='Thode Library img' />
                     </div>
                     <div className='filters'>
                         <div className='TimeDate'>
                             <div className='Time'>
-                                <div className='inputBox'>
-                                    <label htmlFor='box1'>Time:</label>
+                                <div className='inputBox' style={{margin:'10px', fontSize:'14px'}}>
+                                    <label htmlFor='box1'style={{margin:'10px', fontSize:'18px'}}>Time:</label>
                                     <input type="time" step="60" className="box1" value='10:00'
                                         onChange={(ev) => { this.setState({ time: ev.target.value }) }} />
                                 </div>
-                                <div className='inputBox'>
+                                <div className='inputBox' style={{margin:'10px', fontSize:'14px'}}>
                                     <label htmlFor='box2' id='slash'> - </label>
                                     <input type="time" step="60" className="box2" value='11:00'
                                         onChange={(ev) => { this.setState({ time: ev.target.value }) }} />
                                 </div>
                             </div>
-                            <div className='date'>
+                            <div className='date' style={{fontSize:'14px'}}>
                                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                     <MyApp />
                                 </MuiPickersUtilsProvider>
                             </div>
                         </div>
                         <div className='Location'>
-                            <label htmlFor='opt'> Location: </label>
+                            <label htmlFor='opt'style={{margin:'10px', fontSize:'18px'}}> Location: </label>
                             <select className='opt' value={this.state.seatList.location}
-                                onChange={this.handleChange}>
-                                <option name="All"> All</option>
-                                <option name="Lobby"> Lobby</option>
-                                <option name="First Floor">First Floor</option>
-                                <option name="Second Floor">Second Floor</option>
+                                onChange={this.handleChange} style={{fontSize:'14px'}}>
+                                <option name="All" style={{fontSize:'14px'}}> All</option>
+                                <option name="Lobby" style={{fontSize:'14px'}}> Lobby</option>
+                                <option name="First Floor" style={{fontSize:'14px'}}>First Floor</option>
+                                <option name="Second Floor" style={{fontSize:'14px'}}>Second Floor</option>
                             </select>
                         </div>
                         <div className='Machine'>
-                            <label htmlFor='opt'> Machine: </label>
-                            <select className='opt' value={this.state.seatList.machine} onChange={this.handleChange2}>
-                                <option name="ll"> All</option>
-                                <option name="PC"> PC</option>
-                                <option name="Projector">Projector</option>
+                            <label htmlFor='opt'style={{margin:'10px', fontSize:'18px'}}> Machine: </label>
+                            <select className='opt' style={{fontSize:'14px'}} value={this.state.seatList.machine} onChange={this.handleChange2}>
+                                <option name="ll" style={{fontSize:'14px'}}> All</option>
+                                <option name="PC" style={{fontSize:'14px'}}> PC</option>
+                                <option name="Projector" style={{fontSize:'14px'}}>Projector</option>
                             </select>
                         </div>
                         <div className='Status'>
                             <input type="checkbox" id="Busy" checked={this.state.Ava}
                                 onChange={this.flipAva.bind(this)} />
-                            <label htmlFor="Busy">Available</label>
+                            <label htmlFor="Busy"style={{margin:'10px', fontSize:'18px'}}>Available</label>
 
                             <input type="checkbox" id="Ava" checked={this.state.Busy}
                                 onChange={this.flipBusy.bind(this)} />
-                            <label htmlFor="Ava">Busy</label>
+                            <label htmlFor="Ava" style={{margin:'10px', fontSize:'18px'}}>Busy</label>
                         </div>
                     </div>
                 </div>

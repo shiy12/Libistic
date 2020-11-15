@@ -107,38 +107,37 @@ class BrowsePage extends React.Component{
 
 
       return(
-        <CardDeck>
+        <CardDeck style={{paddingTop:'50px'}}>
         <Card style={{ width: '30rem', textAlign:"center"}}>
-        <div className="cardImg">
+        <div >
         <Form>
-          
           <Form.Group as={Row} controlId="formPlaintextSeatType">
           <Col ></Col>
           <Col >
-            <Button  variant="outline-primary" onClick={() => this.importPreference()}>Import My Preference</Button>{' '}
+            <Button style={{fontSize:'16px'}} variant="outline-primary" onClick={() => this.importPreference()}>Import My Preference</Button>{' '}
           </Col>
           <Col ></Col>
           </Form.Group>
 
 
           <Form.Group as={Row} controlId="formPlaintextDistance">
-          <Form.Label column sm="3">
+          <Form.Label column sm="3" style={{margin:'10px', fontSize:'18px'}}>
             DISTANCE
           </Form.Label>
           <Col sm="7">
           <Form.Control type="range" min={0} max={1000} value={this.state.MaxDistance}  onChange={this.handleChange} />
-          <Form.Label style={{float:'left', padding: '0px', margin: '0px'}}>0m</Form.Label>
-          <Form.Label style={{float:'left', paddingLeft: '80px', margin: '0px'}}>{this.state.MaxDistance}m</Form.Label>
-          <Form.Label style={{float:'right', padding: '0px', margin: '0px'}}>1000m</Form.Label>
+          <Form.Label style={{float:'left', padding: '0px', margin: '0px', fontSize:'16px'}}>0m</Form.Label>
+          <Form.Label style={{float:'left', paddingLeft: '80px', margin: '0px', fontSize:'16px'}}>{this.state.MaxDistance}m</Form.Label>
+          <Form.Label style={{float:'right', padding: '0px', margin: '0px', fontSize:'16px'}}>1000m</Form.Label>
           </Col>
         </Form.Group>
 
         <Form.Group as={Row} controlId="formPlaintextSeatType">
-          <Form.Label column sm="3">
+          <Form.Label column sm="3" style={{margin:'10px', fontSize:'18px'}}>
             SEAT TYPE
           </Form.Label>
           <Col sm="7">
-          <ButtonGroup className="mr-2" aria-label="First group">
+          <ButtonGroup className="mr-2" aria-label="First group" style={{margin:'10px', fontSize:'18px'}}>
             <Button active={this.state.HasPC} variant="outline-primary" size = "sm" onClick={() => this.filterPC()} style={{margin:'2px'}}>PC</Button>
             <Button active={this.state.HasGroup} variant="outline-primary" size = "sm" onClick={() => this.filterGroup()} style={{margin:'2px'}}>Group</Button>
             <Button active={this.state.HasPrinter} variant="outline-primary" size = "sm" onClick={() => this.filterPrinter()}style={{margin:'2px'}}>Printer</Button>
@@ -149,7 +148,7 @@ class BrowsePage extends React.Component{
         </Form.Group>
 
         <Form.Group controlId="formPlaintextSeatType">
-          <Form.Label> CALENDAR  </Form.Label>
+          <Form.Label style={{margin:'10px', fontSize:'18px'}}> CALENDAR  </Form.Label>
           <Row>
             <Col></Col>
             <Col>

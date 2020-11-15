@@ -75,10 +75,10 @@ class Booking extends React.Component {
     render() {
 
         return (
-            <CardDeck>
+            <CardDeck style={{paddingTop:'30px'}}>
                 <div>
-                <Card style={{ width: '35rem', textAlign:"left", height:'50rem', margin:'5px', padding:'10px'}}>
-                <Card.Title><h3>Thode Library</h3></Card.Title>
+                <Card style={{ width: '35rem', textAlign:"center", height:'50rem', margin:'5px', padding:'10px'}}>
+                <Card.Title><h3 style={{padding:'10px',fontSize:'22px'}}>Thode Library</h3></Card.Title>
                 <div className='cardImg'>
                 <Card.Img style={{width: '95%', height: '70%', overflow:'auto', padding:'10px', margin:'5px'}} variant="top" src={lib} alt='Thode Library img' />
                 <Image style={{width: '80%', height: '20%'}} variant="top" id='LibIcon' src={libIcon} alt='Avaliable Service' />
@@ -90,20 +90,20 @@ class Booking extends React.Component {
                     <Row>
                         <Col sm='2'></Col>
                         <Col sm='2'>
-                        <img style={{width: '120%', height: '100%', position:'relative',right:'50px'}} className='ic' src={imgPC} alt="PC ICON" />
+                        <img style={{width: '100%', height: '90%', position:'relative',right:'50px', padding:'5px'}} className='ic' src={imgPC} alt="PC ICON" />
                         </Col>
                         <Col>
                         <div>
-                            <label className = 'Blabel' htmlFor='id'>ID:</label>
-                            <span id='id'>{this.state.ID}</span>
+                            <label className = 'Blabel' htmlFor='id' style={{padding:'10px',fontSize:'18px'}}>ID :</label>
+                            <span style={{padding:'5px',fontSize:'16px'}} id='id'>{this.state.ID}</span>
                         </div>
                         <div>
-                            <label className = 'Blabel' htmlFor='location'>Location:</label>
-                            <span id='location'>{this.state.Location}</span>
+                            <label className = 'Blabel' htmlFor='location'style={{padding:'10px',fontSize:'18px'}}>Location :</label>
+                            <span style={{padding:'5px',fontSize:'16px'}} id='location'>{this.state.Location}</span>
                         </div>
                         <div>
-                            <label className = 'Blabel' htmlFor='Spec'>Specification:</label>
-                            <span id='Spec'>Win 10 with MS Office, Matlab, Photoshop</span>
+                            <label className = 'Blabel' htmlFor='Spec' style={{padding:'10px',fontSize:'18px'}}>Specification :</label>
+                            <span style={{padding:'5px',fontSize:'16px'}} id='Spec'>Win 10 with MS Office, Matlab, Photoshop</span>
                         </div>
                         </Col>
                     </Row>
@@ -111,16 +111,16 @@ class Booking extends React.Component {
                     <div className='subSec'>
                     <div className='data'>
                         <div className='Subbox'>
-                            <img className='icon' src={userIcon} alt='User Icon' />
-                            <label className = 'Blabel' htmlFor='name'>Name:</label>
+                            <img className='icon' src={userIcon} alt='User Icon'/>
+                            <label className = 'Blabel' htmlFor='name' style={{padding:'10px',fontSize:'18px'}}>Name:</label>
                             <input type="text" id="nameBox"
-                                onChange={this.handleChange} />
+                                onChange={this.handleChange} style={{fontSize:'16px'}}/>
                         </div>
                         <div className='Subbox'>
                             <img className='icon' src={emailIcon} alt='Emial Icon' />
-                            <label className = 'Blabel' htmlFor='email'>Email:</label>
+                            <label className = 'Blabel' htmlFor='email' style={{padding:'10px',fontSize:'18px'}}>Email:</label>
                             <input type="email" id="emailBox"
-                                onChange={this.handleChange2} />
+                                onChange={this.handleChange2} style={{fontSize:'16px'}}/>
                         </div>
 
                     </div>
@@ -128,7 +128,7 @@ class Booking extends React.Component {
                         <div className='Time'>
                             <div className='inputBox'>
                                 <img className='icon' src={clockIcon} alt='Clock Icon' />
-                                <label className = 'Blabel' htmlFor='box1'>Time slot:</label>
+                                <label className = 'Blabel' htmlFor='box1' style={{padding:'10px',fontSize:'18px'}}>Time slot:</label>
                                 <input type="time" step="60" className="box1"
                                     value={this.state.start} disabled={true}
                                     onChange={(ev) => { this.setState({ time: ev.target.value }) }} />
@@ -143,15 +143,12 @@ class Booking extends React.Component {
                         </div>
                     </div>
                     <div id='btns'>
-                        <button type="button" className="btn btn-primary btn-lg" id='back' onClick={() => this.goSeat()}>Back</button>
-                        <button type="button" className="btn btn-primary btn-lg" id='submit' onClick={() => this.goSeat2()}>Reserve Now</button>
+                        <button type="button" style={{fontSize:'16px'}} className="btn btn-primary btn-lg" id='back' onClick={() => this.goSeat()}>Back</button>
+                        <button type="button" style={{fontSize:'16px'}} className="btn btn-primary btn-lg" id='submit' onClick={() => this.goSeat2()}>Reserve Now</button>
                     </div>
                     </div>
                     </Row>
                 </Form>
-
-
-                
                     {this.renderSeat()}
                     
                 </Card>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, ListGroup, Card, CardDeck} from 'react-bootstrap';
+import {Button, ListGroup, Card, CardDeck,Row, Col} from 'react-bootstrap';
 import { Redirect } from "react-router-dom";
 import './MainPage.css'
 import MapView from './TestMap';
@@ -40,37 +40,44 @@ class SearchBar extends Component {
         if (this.state.showSearch){
             return (
                 <div>
-                    <div className="SearchBar">
+                    <Row style={{margin:'5px'}}>
+                    <Col></Col>
+                    <Col>
                     <div className="SearchComponent" >
                     <FreeSoloCreateOption />
-                    <Button onClick={this.handleSubmit}>search</Button>
-                    </div>
-                    </div>
-                    <div className="LayComp">
+                    <Button onClick={this.handleSubmit} style={{fontSize:'16px'}}>search</Button>
+                    </div></Col>
+                    <Col></Col>
+                    </Row>
+
+                    <Row style={{margin:'5px'}}>
                     <CardDeck onClick={this.clickResult}>
                         <SearchResult />
-                        <Card style={{ width: '75vw'}}>
+                        <Card style={{ width: '72vw'}}>
                             <MapView />
                         </Card>
                     </CardDeck>
-                    </div>
+                    </Row>
                     {this.renderLib()}
                 </div>
             );
         }else{
             return (
                 <div>
-                    <div className="SearchBar">
+                    <Row style={{margin:'5px'}}>
+                    <Col></Col>
+                    <Col>
                     <div className="SearchComponent" >
                     <FreeSoloCreateOption />
-                    <Button onClick={this.handleSubmit}>search</Button>
-                    </div>
-                    </div>
-                <div className="LayComp">
+                    <Button onClick={this.handleSubmit} style={{fontSize:'16px'}}>search</Button>
+                    </div></Col>
+                    <Col></Col></Row>
+                
+                    <Row style={{margin:'5px'}}>
                     <Card style={{ width: '100vw'}}>
                         <MapView />
                     </Card>
-                </div>
+                    </Row>
                 </div>
             );
         }  
@@ -87,20 +94,20 @@ function SearchResult() {
         <Card style={{ width: '25vw', textAlign:"left"}}>
             <ListGroup style={{textAlign:"left"}}>
                 <ListGroup.Item>
-                    <h6>H.G. Thode Library of Science and Engineering</h6>
-                    <p>1280 Main St W, Hamilton, ON L8S 4P5 <br />Open until 5:45p.m.<br />(905)-525-9140</p>
+                    <h6 style={{fontSize:'18px'}}>H.G. Thode Library of Science and Engineering</h6>
+                    <p style={{fontSize:'16px'}}>1280 Main St W, Hamilton, ON L8S 4P5 <br />Open until 5:45p.m.<br />(905)-525-9140</p>
                 </ListGroup.Item>
                 <ListGroup.Item disabled style={{backgroundColor:"#F1F1F1"}}>
-                    <h6>Mills Memorial Library</h6>
-                    <p>1280 Main St W, Hamilton, ON L8S 4P5 <br />Temporary Closed<br />(905)-525-9140</p>
+                    <h6 style={{fontSize:'18px'}}>Mills Memorial Library</h6>
+                    <p style={{fontSize:'16px'}}>1280 Main St W, Hamilton, ON L8S 4P5 <br />Temporary Closed<br />(905)-525-9140</p>
                 </ListGroup.Item>
                 <ListGroup.Item disabled >
-                    <h6>Health Sciences Library</h6>
-                    <p>McMaster University, Health Sciences Centre, 1280 Main Street West, Hamilton, ON <br />Open until 5:45p.m.<br />(905) 525-9140 ext.22327</p>
+                    <h6 style={{fontSize:'18px'}}>Health Sciences Library</h6>
+                    <p style={{fontSize:'16px'}}>McMaster University, Health Sciences Centre, 1280 Main Street West, Hamilton, ON <br />Open until 5:45p.m.<br />(905) 525-9140 ext.22327</p>
                 </ListGroup.Item>
                 <ListGroup.Item disabled style={{backgroundColor:"#F1F1F1"}}>
-                    <h6>Hamilton Public Library - Westdale Branch</h6>
-                    <p>955 King St W, Hamilton, ON L8S 1K9 <br />Closed<br />(905) 546-3200</p>
+                    <h6 style={{fontSize:'18px'}}>Hamilton Public Library - Westdale Branch</h6>
+                    <p style={{fontSize:'16px'}}>955 King St W, Hamilton, ON L8S 1K9 <br />Closed<br />(905) 546-3200</p>
                 </ListGroup.Item>
             </ListGroup>
         </Card>

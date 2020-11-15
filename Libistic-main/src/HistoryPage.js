@@ -67,30 +67,30 @@ class HistoryPage extends React.Component {
     render() {
         return (
             <div className='sec'>
-            <h2 id='historyTitle'>Booking History</h2>
+            <h3 id='historyTitle' style={{fontSize:'22px'}}>Booking History</h3>
             <Form>
                 <Row>
                 <Col sm='1'></Col>
                 <Col xs='auto'>
                 <Image style={{width: '80%', height: '80%', marginLeft:'20%'}} src={lib} id='lib' alt='Thode Library' rounded/>
                 </Col>
-                <Col sm='7' style={{marginTop:'15px'}}>
+                <Col sm='7' style={{marginTop:'10px'}}>
                 <div className='hbox'>
-                <div className='subBox' style={{padding:'2px'}}>
+                <div className='subBox' style={{padding:'2px', fontSize:'14px'}}>
                     <span className='spans'>Name: </span>
                     <div id='name'>{this.state.name},</div>
                     <div id='email'>{this.state.email}</div> 
                 </div>
-                <div className='subBox' style={{padding:'2px'}}>
+                <div className='subBox' style={{padding:'2px', fontSize:'14px'}}>
                     <span className='spans'>Location: </span>
                     <div id='loc'>{this.state.Location},</div>
                     <div id='id'>{this.state.ID}</div>
                 </div>
-                <div className='subBox' style={{padding:'2px'}}>
+                <div className='subBox' style={{padding:'2px', fontSize:'14px'}}>
                     <span className='spans'>Time: </span>
                         <div id='date'>{this.state.date},</div>
                     <div id='time'>{this.state.start}<span> - </span>{this.state.end}</div>
-                    <Button id='remove' onClick={() => this.goMain()}>Delete</Button>
+                    <Button style={{fontSize:'14px'}} id='remove' onClick={() => this.goMain()}>Delete</Button>
                 </div>
                 </div>
                 </Col>

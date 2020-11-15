@@ -40,7 +40,7 @@ export default function FreeSoloCreateOption() {
       selectOnFocus
       clearOnBlur
       handleHomeEndKeys
-      id="Search the address"
+      id="Search the library"
       options={top100Films}
       getOptionLabel={(option) => {
         // Value selected with enter, right from the input
@@ -54,7 +54,7 @@ export default function FreeSoloCreateOption() {
       style={{ width: 400, Height: 40}}
       freeSolo
       renderInput={(params) => (
-        <TextField {...params} label="Search the address" variant="outlined" />
+        <TextField {...params} label="Search the library" variant="outlined" />
       )}
     />
   );

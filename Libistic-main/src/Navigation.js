@@ -45,6 +45,10 @@ const Styles = styled.div`
   }
 `;
 
+function clickSignOut(){
+  alert("This function is not availible in this test yet.")
+}
+
 const NavigationBar = () => (
   
   <Styles>
@@ -52,26 +56,22 @@ const NavigationBar = () => (
       <Navbar.Brand href="/"><img id='logo' src={logo} alt='Libistic' /></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="ml-auto" ></Nav>
+        <Nav className="ml-auto" >
         <Nav.Item><Nav.Link href="/" >Main</Nav.Link></Nav.Item>
         <Nav.Item><Nav.Link href="/BrowsePage" >Browse</Nav.Link></Nav.Item>
         <Nav.Item><Nav.Link href="/SettingPage" >Setting</Nav.Link></Nav.Item>
         <Nav.Item><Nav.Link href="/SupportPage" >Support</Nav.Link></Nav.Item>
-
-        
         <NavDropdown title="Test User" id="basic-nav-dropdown">
-            <NavDropdown.Item className='itemImg'><img width={'10px'} height={'10px'} src={"https://avatars2.githubusercontent.com/u/32040029?s=400&v=4"}></img></NavDropdown.Item>
+            <NavDropdown.Item className='itemImg'><img width={'30px'} height={'30px'} src={"https://avatars2.githubusercontent.com/u/32040029?s=400&v=4"}></img></NavDropdown.Item>
             <NavDropdown.Item className='itemU'>user@test.com</NavDropdown.Item>
             <Nav.Item className='item'><Nav.Link className='item' href="/HistoryPage">Booking History</Nav.Link></Nav.Item>
             <NavDropdown.Divider/>
-            <NavDropdown.Item className='item'>Sign Out</NavDropdown.Item>
+            <NavDropdown.Item className='item' onClick={clickSignOut}>Sign Out</NavDropdown.Item>
         </NavDropdown>
-
+      </Nav>
       </Navbar.Collapse>
       <Form className="form-center" >
-        
-        <FormControl type="text" placeholder="Type here" className="" />
-        
+        <FormControl type="text" placeholder="Type here" className="" onChange={clickSignOut} value=""/>
       </Form>
     </Navbar>
   </Styles>
